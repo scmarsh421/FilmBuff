@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MovieService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FilmBuff.Data\FilmBuff.Data.csproj">
+      <Project>{36e2c05c-463f-4a5d-a084-e848e1fc0d5e}</Project>
+      <Name>FilmBuff.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FilmBuff.Models\FilmBuff.Models.csproj">
+      <Project>{c92a54d2-a9bd-4627-a825-ea5bc6507585}</Project>
+      <Name>FilmBuff.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

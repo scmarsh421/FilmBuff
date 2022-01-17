@@ -17,7 +17,7 @@ namespace FilmBuff.Data
         public string Title { get; set; }
         [Required]
         [MaxLength(4, ErrorMessage ="Too many characters in this field.")]
-        public int Year { get; set; }
+        public string Year { get; set; }
         [Required]
         public string DirectedBy { get; set; }
         public virtual List<Review> Reviews { get; set; } = new List<Review>();
