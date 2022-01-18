@@ -11,9 +11,9 @@ namespace FilmBuff.Services
     public class MovieService
     {
         private readonly Guid _userId;
-        public MovieService(Guid guid)
+        public MovieService(Guid userId)
         {
-            _userId = _userId;
+            _userId = userId;
         }
         public bool CreateMovie(MovieCreate model)
         {

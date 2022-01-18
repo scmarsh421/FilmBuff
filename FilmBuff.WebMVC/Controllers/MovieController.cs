@@ -12,13 +12,17 @@ namespace FilmBuff.WebMVC.Controllers
     public class MovieController : Controller
     {
         // GET: Movie
-        //[Authorize]
+        [Authorize]
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new MovieService(userId);
             var model = service.GetMovies();
             return View(model);
+        }
+        public ActionResult Create()
+        {
+            return View();
         }
         //GET: Create View
         [HttpPost]
