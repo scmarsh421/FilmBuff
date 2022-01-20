@@ -23,6 +23,7 @@ namespace FilmBuff.Services
                     OwnerId = _userId,
                     Title = model.Title,
                     Year = model.Year,
+                    DirectedBy = model.DirectedBy,
                     CreatedUtc = DateTimeOffset.Now
                 };
             using (var ctx = new ApplicationDbContext())
@@ -52,6 +53,27 @@ namespace FilmBuff.Services
                         );
 
                 return query.ToArray();
+            }
+        }
+        public MovieDetail GetMovieById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Movies
+                    .Single(e => e.MovieId == id && e.OwnerId == _userId);
+                return
+                    new MovieDetail
+                    {
+                        MovieId = entity.MovieId,
+                        Title = entity.Title,
+                        Year = entity.Year,
+                        DirectedBy = entity.DirectedBy,
+                        //Reviews = entity.Reviews,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
             }
         }
     }

@@ -29,16 +29,30 @@ namespace FilmBuff.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(MovieCreate model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+            
+            var service = CreateMovieService();
+
+            if (service.CreateMovie(model))
             {
-                return View(model);
+                TempData["SaveResult"] = "Your movie was created.";
+                return RedirectToAction("Index");
             }
+            ModelState.AddModelError("", "Movie could not be created");
+            return View(model);
+
+        }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateMovieService();
+            var model = svc.GetMovieById(id);
+            return View(model);
+        }
+        private MovieService CreateMovieService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new MovieService(userId);
-
-            service.CreateMovie(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }

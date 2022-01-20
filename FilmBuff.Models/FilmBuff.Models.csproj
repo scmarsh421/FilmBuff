@@ -66,5 +66,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FilmBuff.Data\FilmBuff.Data.csproj">
+      <Project>{36E2C05C-463F-4A5D-A084-E848E1FC0D5E}</Project>
+      <Name>FilmBuff.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
