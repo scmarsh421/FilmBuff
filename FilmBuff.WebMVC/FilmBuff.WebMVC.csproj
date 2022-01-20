@@ -240,6 +240,8 @@
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Movie\Details.cshtml" />
     <Content Include="Views\Movie\Edit.cshtml" />
+    <Content Include="Views\Movie\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

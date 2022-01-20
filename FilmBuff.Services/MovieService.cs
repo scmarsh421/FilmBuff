@@ -89,7 +89,20 @@ namespace FilmBuff.Services
                 entity.Year = model.Year;
                 entity.DirectedBy = model.DirectedBy;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
-                
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteMovie(int movieId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Movies
+                        .Single(e => e.MovieId == movieId && e.OwnerId == _userId);
+
+                ctx.Movies.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

@@ -20,10 +20,12 @@ namespace FilmBuff.WebMVC.Controllers
             var model = service.GetMovies();
             return View(model);
         }
+
         public ActionResult Create()
         {
             return View();
         }
+
         //GET: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -41,12 +43,14 @@ namespace FilmBuff.WebMVC.Controllers
             ModelState.AddModelError("", "Movie could not be created");
             return View(model);
         }
+        //GET: Details
         public ActionResult Details(int id)
         {
             var svc = CreateMovieService();
             var model = svc.GetMovieById(id);
             return View(model);
         }
+
         // GET: Edit
         public ActionResult Edit(int id)
         {
@@ -62,6 +66,7 @@ namespace FilmBuff.WebMVC.Controllers
                 };
             return View(model);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, MovieEdit model)
@@ -82,7 +87,26 @@ namespace FilmBuff.WebMVC.Controllers
             }
             ModelState.AddModelError("", "Movie could not be updated");
             return View(model);
+        }
 
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateMovieService();
+            var model = svc.GetMovieById(id);
+            return View(model);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteMovie(int id)
+        {
+            var service = CreateMovieService();
+
+            service.DeleteMovie(id);
+
+            TempData["SaveResult"] = "Your movie was deleted";
+
+            return RedirectToAction("Index");
         }
         private MovieService CreateMovieService()
         {
