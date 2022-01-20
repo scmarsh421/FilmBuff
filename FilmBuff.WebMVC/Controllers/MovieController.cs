@@ -24,13 +24,13 @@ namespace FilmBuff.WebMVC.Controllers
         {
             return View();
         }
-        //GET: Create View
+        //GET: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(MovieCreate model)
         {
             if (!ModelState.IsValid) return View(model);
-            
+
             var service = CreateMovieService();
 
             if (service.CreateMovie(model))
@@ -40,13 +40,49 @@ namespace FilmBuff.WebMVC.Controllers
             }
             ModelState.AddModelError("", "Movie could not be created");
             return View(model);
-
         }
         public ActionResult Details(int id)
         {
             var svc = CreateMovieService();
             var model = svc.GetMovieById(id);
             return View(model);
+        }
+        // GET: Edit
+        public ActionResult Edit(int id)
+        {
+            var service = CreateMovieService();
+            var detail = service.GetMovieById(id);
+            var model =
+                new MovieEdit
+                {
+                    MovieId = detail.MovieId,
+                    Title = detail.Title,
+                    Year = detail.Year,
+                    DirectedBy = detail.DirectedBy,
+                };
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, MovieEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.MovieId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = CreateMovieService();
+
+            if (service.UpdateMovie(model))
+            {
+                TempData["SaveResult"] = "Your movie was updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Movie could not be updated");
+            return View(model);
+
         }
         private MovieService CreateMovieService()
         {

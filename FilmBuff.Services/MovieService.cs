@@ -70,10 +70,28 @@ namespace FilmBuff.Services
                         Title = entity.Title,
                         Year = entity.Year,
                         DirectedBy = entity.DirectedBy,
-                        //Reviews = entity.Reviews,
+                        Reviews = entity.Reviews,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
+            }
+        }
+        public bool UpdateMovie(MovieEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Movies
+                        .Single(e => e.MovieId == model.MovieId && e.OwnerId == _userId);
+
+                entity.Title = model.Title;
+                entity.Year = model.Year;
+                entity.DirectedBy = model.DirectedBy;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
