@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FilmBuff.Models
+namespace FilmBuff.Models.Review
 {
-    public class ReviewListItem
+    public class ReviewDetail
     {
         public int ReviewId { get; set; }
         [ForeignKey("Movie")]
         public int MovieId { get; set; }
         public virtual MovieListItem Movie { get; set; }
         public string Content { get; set; }
-        [Display(Name="Created")]
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified")]
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

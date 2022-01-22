@@ -20,7 +20,6 @@ namespace FilmBuff.Data
         public string Year { get; set; }
         [Required]
         public string DirectedBy { get; set; }
-        public virtual List<Review> Reviews { get; set; } = new List<Review>();
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }

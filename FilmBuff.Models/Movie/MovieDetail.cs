@@ -1,5 +1,4 @@
-﻿using FilmBuff.Data; //check this again later
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,7 +14,7 @@ namespace FilmBuff.Models.Movie
         public string Year { get; set; }
         [Display(Name = "Directed by")]
         public string DirectedBy { get; set; }
-        public virtual List<Review> Reviews { get; set; } = new List<Review>(); //check
+        //public virtual List<ReviewListItem> Reviews { get; set; } = new List<ReviewListItem>(); //check
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]

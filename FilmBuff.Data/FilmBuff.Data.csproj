@@ -67,6 +67,14 @@
     <Compile Include="Migrations\202201172318236_MovieData.Designer.cs">
       <DependentUpon>202201172318236_MovieData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201221747311_ReviewFix.cs" />
+    <Compile Include="Migrations\202201221747311_ReviewFix.Designer.cs">
+      <DependentUpon>202201221747311_ReviewFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201221913155_MovieRemovedList.cs" />
+    <Compile Include="Migrations\202201221913155_MovieRemovedList.Designer.cs">
+      <DependentUpon>202201221913155_MovieRemovedList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +93,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201172318236_MovieData.resx">
       <DependentUpon>202201172318236_MovieData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221747311_ReviewFix.resx">
+      <DependentUpon>202201221747311_ReviewFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221913155_MovieRemovedList.resx">
+      <DependentUpon>202201221913155_MovieRemovedList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

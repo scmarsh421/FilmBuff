@@ -1,5 +1,6 @@
 ﻿using FilmBuff.Data;
-using FilmBuff.Models.Movie;
+using FilmBuff.Models;
+using FilmBuff.Models.Review;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,46 +9,42 @@ using System.Threading.Tasks;
 
 namespace FilmBuff.Services
 {
-    public class MovieService
+    public class ReviewService
     {
         private readonly Guid _userId;
-        public MovieService(Guid userId)
+        public ReviewService(Guid userId)
         {
             _userId = userId;
         }
-        public bool CreateMovie(MovieCreate model)
+        public bool CreateReview(ReviewCreate model)
         {
             var entity =
-                new Movie()
+                new Review()
                 {
                     OwnerId = _userId,
-                    Title = model.Title,
-                    Year = model.Year,
-                    DirectedBy = model.DirectedBy,
+                    Content = model.Content,
                     CreatedUtc = DateTimeOffset.Now
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Movies.Add(entity);
+                ctx.Reviews.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<MovieListItem> GetMovies()
+        public IEnumerable<ReviewListItem> GetReviews()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Movies
+                        .Reviews
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
-                                new MovieListItem
+                                new ReviewListItem
                                 {
                                     MovieId = e.MovieId,
-                                    Title = e.Title,
-                                    Year = e.Year,
-                                    DirectedBy = e.DirectedBy,
+                                    Content = e.Content,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -55,57 +52,53 @@ namespace FilmBuff.Services
                 return query.ToArray();
             }
         }
-        public MovieDetail GetMovieById(int id)
+        public ReviewDetail GetReviewById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Movies
-                    .Single(e => e.MovieId == id && e.OwnerId == _userId);
+                    .Reviews
+                    .Single(e => e.ReviewId == id && e.OwnerId == _userId);
                 return
-                    new MovieDetail
+                    new ReviewDetail
                     {
                         MovieId = entity.MovieId,
-                        Title = entity.Title,
-                        Year = entity.Year,
-                        DirectedBy = entity.DirectedBy,
-                        //Reviews = entity.Reviews,
+                        Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
-        public bool UpdateMovie(MovieEdit model)
+        public bool UpdateReview(ReviewEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Movies
-                        .Single(e => e.MovieId == model.MovieId && e.OwnerId == _userId);
+                        .Reviews
+                        .Single(e => e.ReviewId == model.ReviewId && e.OwnerId == _userId);
 
-                entity.Title = model.Title;
-                entity.Year = model.Year;
-                entity.DirectedBy = model.DirectedBy;
+                entity.Content = model.Content;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool DeleteMovie(int movieId)
+        public bool DeleteReview(int reviewId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Movies
-                        .Single(e => e.MovieId == movieId && e.OwnerId == _userId);
+                        .Reviews
+                        .Single(e => e.ReviewId == reviewId && e.OwnerId == _userId);
 
-                ctx.Movies.Remove(entity);
+                ctx.Reviews.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
         }
     }
 }
+
