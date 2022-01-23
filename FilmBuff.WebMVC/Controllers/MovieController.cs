@@ -8,11 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace FilmBuff.WebMVC.Controllers
-{
+{  
+    [Authorize]
     public class MovieController : Controller
     {
-        // GET: Movie
-        [Authorize]
+        // GET: Movie Index
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -21,12 +21,13 @@ namespace FilmBuff.WebMVC.Controllers
             return View(model);
         }
 
+        //GET: Create
         public ActionResult Create()
         {
             return View();
         }
 
-        //GET: Create
+        //POST: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(MovieCreate model)
@@ -66,7 +67,7 @@ namespace FilmBuff.WebMVC.Controllers
                 };
             return View(model);
         }
-
+        //POST: Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, MovieEdit model)
@@ -89,12 +90,14 @@ namespace FilmBuff.WebMVC.Controllers
             return View(model);
         }
 
+        //GET: Deelte
         public ActionResult Delete(int id)
         {
             var svc = CreateMovieService();
             var model = svc.GetMovieById(id);
             return View(model);
         }
+        //POST: Delete
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]

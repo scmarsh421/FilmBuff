@@ -13,8 +13,7 @@ namespace FilmBuff.WebMVC.Controllers
     [Authorize]
     public class ReviewController : Controller
     {
-        // GET: Review
-        [Authorize]
+        // GET: Review Index
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -23,12 +22,13 @@ namespace FilmBuff.WebMVC.Controllers
             return View(model);
         }
 
+        //GET: Create
         public ActionResult Create()
         {
             return View();
         }
 
-        //GET: Create
+        //POST: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ReviewCreate model)
@@ -66,7 +66,7 @@ namespace FilmBuff.WebMVC.Controllers
                 };
             return View(model);
         }
-
+        //POST: Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ReviewEdit model)
@@ -89,12 +89,15 @@ namespace FilmBuff.WebMVC.Controllers
             return View(model);
         }
 
+        //GET: Delete
         public ActionResult Delete(int id)
         {
             var svc = CreateReviewService();
             var model = svc.GetReviewById(id);
             return View(model);
         }
+
+        //POST: Delete
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
