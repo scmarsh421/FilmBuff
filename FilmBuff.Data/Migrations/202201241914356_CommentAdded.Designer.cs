@@ -7,13 +7,13 @@ namespace FilmBuff.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class ReviewFix : IMigrationMetadata
+    public sealed partial class CommentAdded : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ReviewFix));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CommentAdded));
         
         string IMigrationMetadata.Id
         {
-            get { return "202201241431126_ReviewFix"; }
+            get { return "202201241914356_CommentAdded"; }
         }
         
         string IMigrationMetadata.Source
