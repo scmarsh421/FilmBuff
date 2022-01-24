@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comment\CommentCreate.cs" />
+    <Compile Include="Comment\CommentDetail.cs" />
+    <Compile Include="Comment\CommentEdit.cs" />
+    <Compile Include="Comment\CommentListItem.cs" />
     <Compile Include="Movie\MovieCreate.cs" />
     <Compile Include="Movie\MovieDetail.cs" />
     <Compile Include="Movie\MovieEdit.cs" />
