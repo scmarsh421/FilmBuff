@@ -59,6 +59,10 @@
     <Compile Include="Migrations\202201232133196_ReviewDataChange.Designer.cs">
       <DependentUpon>202201232133196_ReviewDataChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201241431126_ReviewFix.cs" />
+    <Compile Include="Migrations\202201241431126_ReviewFix.Designer.cs">
+      <DependentUpon>202201241431126_ReviewFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +75,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202201232133196_ReviewDataChange.resx">
       <DependentUpon>202201232133196_ReviewDataChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201241431126_ReviewFix.resx">
+      <DependentUpon>202201241431126_ReviewFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

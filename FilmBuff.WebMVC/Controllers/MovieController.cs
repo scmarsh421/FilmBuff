@@ -90,7 +90,7 @@ namespace FilmBuff.WebMVC.Controllers
             return View(model);
         }
 
-        //GET: Deelte
+        //GET: Delete
         public ActionResult Delete(int id)
         {
             var svc = CreateMovieService();

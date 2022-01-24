@@ -18,7 +18,7 @@ namespace FilmBuff.Services
         public bool CreateMovie(MovieCreate model)
         {
             var entity =
-                new Movie()
+                new Data.Movie()
                 {
                     OwnerId = _userId,
                     Title = model.Title,

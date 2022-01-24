@@ -1,5 +1,6 @@
 ﻿using FilmBuff.Data;
 using FilmBuff.Models;
+using FilmBuff.Models.Movie;
 using FilmBuff.Models.Review;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,13 @@ namespace FilmBuff.Services
                     ctx
                     .Reviews
                     .Single(e => e.ReviewId == id && e.OwnerId == _userId);
+                var movieEntity =
+                    ctx
+                    .Movies
+                    .Single(e => e.MovieId == entity.MovieId);
+                MovieDetail movieDetail = new MovieDetail();
+                movieDetail.MovieId = movieEntity.MovieId;
+                movieDetail.Title = movieEntity.Title;
                 return
                     new ReviewDetail
                     {
@@ -69,7 +77,8 @@ namespace FilmBuff.Services
                         MovieId = entity.MovieId,
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        ModifiedUtc = entity.ModifiedUtc,
+                        Movie = movieDetail
                     };
             }
         }
