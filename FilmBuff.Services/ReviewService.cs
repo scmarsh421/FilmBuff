@@ -23,6 +23,7 @@ namespace FilmBuff.Services
                 {
                     OwnerId = _userId,
                     Content = model.Content,
+                    MovieId = model.MovieId,
                     CreatedUtc = DateTimeOffset.Now
                 };
             using (var ctx = new ApplicationDbContext())

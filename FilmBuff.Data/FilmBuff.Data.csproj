@@ -55,25 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202201121450331_InitialCreate.cs" />
-    <Compile Include="Migrations\202201121450331_InitialCreate.Designer.cs">
-      <DependentUpon>202201121450331_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201121547529_InitialMigration.cs" />
-    <Compile Include="Migrations\202201121547529_InitialMigration.Designer.cs">
-      <DependentUpon>202201121547529_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201172318236_MovieData.cs" />
-    <Compile Include="Migrations\202201172318236_MovieData.Designer.cs">
-      <DependentUpon>202201172318236_MovieData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201221747311_ReviewFix.cs" />
-    <Compile Include="Migrations\202201221747311_ReviewFix.Designer.cs">
-      <DependentUpon>202201221747311_ReviewFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201221913155_MovieRemovedList.cs" />
-    <Compile Include="Migrations\202201221913155_MovieRemovedList.Designer.cs">
-      <DependentUpon>202201221913155_MovieRemovedList.cs</DependentUpon>
+    <Compile Include="Migrations\202201232133196_ReviewDataChange.cs" />
+    <Compile Include="Migrations\202201232133196_ReviewDataChange.Designer.cs">
+      <DependentUpon>202201232133196_ReviewDataChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Movie.cs" />
@@ -85,20 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201121450331_InitialCreate.resx">
-      <DependentUpon>202201121450331_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201121547529_InitialMigration.resx">
-      <DependentUpon>202201121547529_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201172318236_MovieData.resx">
-      <DependentUpon>202201172318236_MovieData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201221747311_ReviewFix.resx">
-      <DependentUpon>202201221747311_ReviewFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201221913155_MovieRemovedList.resx">
-      <DependentUpon>202201221913155_MovieRemovedList.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201232133196_ReviewDataChange.resx">
+      <DependentUpon>202201232133196_ReviewDataChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

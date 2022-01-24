@@ -63,6 +63,9 @@ namespace FilmBuff.Services
                     ctx
                     .Movies
                     .Single(e => e.MovieId == id && e.OwnerId == _userId);
+                /*
+                 var reviewList = ctx.Reviews.Where(e => e.MovieId == id)
+                 */
                 return
                     new MovieDetail
                     {
@@ -73,6 +76,7 @@ namespace FilmBuff.Services
                         //Reviews = entity.Reviews,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
+                        // reviewList
                     };
             }
         }

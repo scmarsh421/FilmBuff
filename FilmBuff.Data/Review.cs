@@ -17,6 +17,7 @@ namespace FilmBuff.Data
         [Required]
         [ForeignKey("Movie")]
         public int MovieId { get; set; }
+        //[Display(Name = "Movie")]
         public virtual Movie Movie { get; set; }
         [Required]
         public string Content { get; set; }
