@@ -14,7 +14,7 @@ namespace FilmBuff.Models.Review
         public int ReviewId { get; set; }
         [ForeignKey("Movie")]
         public int MovieId { get; set; }
-        public virtual MovieListItem Movie { get; set; }
+        //public virtual MovieListItem Movie { get; set; }
         public string Content { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }

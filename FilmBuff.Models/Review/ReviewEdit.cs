@@ -13,5 +13,6 @@ namespace FilmBuff.Models.Review
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string Content { get; set; }
+        public int MovieId { get; set; }
     }
 }

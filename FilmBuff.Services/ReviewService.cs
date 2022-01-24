@@ -44,6 +44,7 @@ namespace FilmBuff.Services
                             e =>
                                 new ReviewListItem
                                 {
+                                    ReviewId = e.ReviewId,
                                     MovieId = e.MovieId,
                                     Content = e.Content,
                                     CreatedUtc = e.CreatedUtc
@@ -64,6 +65,7 @@ namespace FilmBuff.Services
                 return
                     new ReviewDetail
                     {
+                        ReviewId = entity.ReviewId,
                         MovieId = entity.MovieId,
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,

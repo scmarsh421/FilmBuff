@@ -61,8 +61,7 @@ namespace FilmBuff.WebMVC.Controllers
             var model =
                 new ReviewEdit
                 {
-                    ReviewId = detail.ReviewId,/////////////////////////////
-                   
+                    Content = detail.Content,
                 };
             return View(model);
         }
