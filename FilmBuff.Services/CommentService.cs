@@ -1,4 +1,5 @@
 ﻿using FilmBuff.Data;
+using FilmBuff.Models;
 using FilmBuff.Models.Comment;
 using FilmBuff.Models.Review;
 using System;
@@ -47,7 +48,11 @@ namespace FilmBuff.Services
                                     CommentId = e.CommentId,
                                     ReviewId = e.ReviewId,
                                     Content = e.Content,
-                                    CreatedUtc = e.CreatedUtc
+                                    CreatedUtc = e.CreatedUtc,
+                                    Review = new ReviewListItem
+                                    {
+                                        Content = e.Review.Content
+                                    }
                                 }
                         );
 

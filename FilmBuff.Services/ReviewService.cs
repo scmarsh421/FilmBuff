@@ -48,7 +48,11 @@ namespace FilmBuff.Services
                                     ReviewId = e.ReviewId,
                                     MovieId = e.MovieId,
                                     Content = e.Content,
-                                    CreatedUtc = e.CreatedUtc
+                                    CreatedUtc = e.CreatedUtc,
+                                    Movie = new MovieListItem
+                                    {
+                                       Title = e.Movie.Title
+                                    }
                                 }
                         );
 

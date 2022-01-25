@@ -14,7 +14,7 @@ namespace FilmBuff.Models.Comment
         public int CommentId { get; set; }
         [ForeignKey("Review")]
         public int ReviewId { get; set; }
-        public virtual ReviewDetail Review { get; set; }
+        public virtual ReviewListItem Review { get; set; }
         public string Content { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
