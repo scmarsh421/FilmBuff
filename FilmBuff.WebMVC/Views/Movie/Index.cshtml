@@ -4,11 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h3><a class="btn btn-success btn-lg" href="~/Movie/Create">Add a movie &raquo;</a></h3>
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -66,3 +62,6 @@
     }
 
 </table>
+<p>
+    <a href="~/Home/Index">Back to home</a>
+</p>

@@ -4,11 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h3><a class="btn btn-success btn-lg" href="~/Comment/Create">Write a comment &raquo;</a></h3>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -28,7 +26,7 @@
             @Html.DisplayNameFor(model => model.ReviewId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Review.Content)
+            @Html.DisplayNameFor(model => model.Review)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Content)
@@ -66,3 +64,6 @@
     }
 
 </table>
+<p>
+    <a href="~/Home/Index">Back to home</a>
+</p>
