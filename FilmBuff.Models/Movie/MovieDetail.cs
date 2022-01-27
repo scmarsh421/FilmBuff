@@ -14,7 +14,6 @@ namespace FilmBuff.Models.Movie
         public string Year { get; set; }
         [Display(Name = "Directed by")]
         public string DirectedBy { get; set; }
-        //public virtual List<ReviewListItem> Reviews { get; set; } = new List<ReviewListItem>(); //check
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]
